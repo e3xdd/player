@@ -1,0 +1,456 @@
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+
+
+.hide {
+    display: none;
+}
+
+body {
+    font-family: 'Microsoft Yahei';
+}
+
+/*背景**********************************************************/
+.e3-mp3-bg {
+    width: 80%;
+    height: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    position: relative;
+    background-color: #FD4848;
+}
+
+/*整个播放器*****************************************************/
+.e3-mp3-player {
+    width: 300px;
+    height: 520px;
+    margin: 0 auto;
+    color: white;
+    box-shadow: 5px 5px 29px #333333;
+    background-color: #262626;
+    box-shadow: 2px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*专辑图片与进度条容器*******************************************/
+.e3-mp3-imgPro {
+    position: relative;
+}
+
+/*专辑图片******************************************************/
+.e3-mp3-img {
+    z-index: 99;
+    width: 300px;
+    height: 300px;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 1s, height 1s, border-radius 1s, top 1s;
+
+}
+
+.e3-mp3-img_play {
+    z-index: 99;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 1s, height 1s, border-radius 1s, top 1s;
+}
+
+.img-rotate_play {
+    left: 16.5%;
+    animation: 9.5s linear 0s normal both infinite rotate;
+    -webkit-animation:9.5s linear 0s normal both infinite rotate;
+}
+
+/*CD 圆环效果***************************************************/
+.circle {
+    z-index: 100;
+    opacity: 0;
+    border: 1px solid #4d4d4d;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 1s;
+}
+.circle_play {
+    opacity: 1;
+    transition: opacity 1s;
+}
+.circle1 {
+    width: 180px;
+    height: 180px;
+    top: 150px;
+}
+.circle2 {
+    width: 160px;
+    height: 160px;
+    top: 160px;
+}
+.circle3 {
+    width: 140px;
+    height: 140px;
+    top: 170px;
+}
+.circle4 {
+    width: 120px;
+    height: 120px;
+    top: 180px;
+}
+.circle5 {
+    width: 100px;
+    height: 100px;
+    top: 190px;
+}
+.circle6 {
+    width: 80px;
+    height: 80px;
+    top: 200px;
+}
+.circle7 {
+    width: 60px;
+    height: 60px;
+    top: 210px;
+}
+
+/*进度条容器********************************************************/
+.e3-mp3-progress {
+    z-index: 100;
+    height: 50px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
+    position: absolute;
+    top: 250px;
+    transition: background-color 1s, top 1s;
+}
+.e3-mp3-progress_play {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0);
+    top: 150px;
+    transition: background-color 1s, top 1s;
+}
+
+/*当前播放歌曲名************************************************/
+.div-currentSong {
+    font-size: 13px;
+    color: #C4C4C4;
+}
+.div-currentSong_play {
+    text-align: center;
+    width: 205px;
+    font-size: 20px;
+    color: #C4C4C4;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*播放时的时间显示**********************************************/
+.time {
+    display: inline;
+    font-size: 10px;
+    color: #C4C4C4;
+}
+.time_play {
+    font-size: 10px;
+    color: #C4C4C4;
+}
+.span-currentTime_play {
+    position: absolute;
+    left: 60px;
+    top: 190px;
+}
+.span-duration_play {
+    position: absolute;
+    right: 60px;
+    top: 190px;
+}
+
+/*进度条********************************************************/
+.progressbar{
+    display: inline-block;
+    height: 2px;
+    width: 120px;
+    background-color: gray;
+    position: relative;
+    bottom: 5px;
+}
+.progressbar_play {
+    width: 230px;
+    height: 230px;
+    display: inline-block;
+    border: 2px solid gray;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    background: none;
+    position: relative;
+    left: 15px;
+    top: -29px;
+}
+
+.progressCircle{
+    display: none;
+    transform: rotate(180deg);
+}
+.progressCircle_play {
+    display: block;
+    z-index: 200;
+    /*width: 230px;
+    height: 230px;*/
+    position: absolute;
+    left: 0;
+    top: -70px;
+}
+
+/* 进度条轨道样式 */
+input[type="range"]{
+    -webkit-appearance: none;
+    width: 125px;
+    height: 2px;
+    background: -webkit-linear-gradient(left ,#FD4848 0%,#FD4848 0%,#C4C4C4 0%, #C4C4C4 100%);
+    outline: none;
+    transition: 0.1s;
+}
+/* 进度条滑块样式 */
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #FD4848;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+/* 进度条前后样式 */
+input[type="range"]::-webkit-slider-thumb:hover,
+input[type="range"]::-webkit-slider-thumb:active{
+    width: 14px;
+    height: 14px;
+}
+
+/*循环播放*******************************************************/
+.button-circlePlay {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    bottom: -100px;
+    left: 115px;
+    transition: opacity 1s, bottom 1s;
+}
+.button-circlePlay_play {
+    z-index: 201;
+    opacity: 1;
+    bottom: 25%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-circlePlay_play:hover {
+    opacity: 0.7;
+}
+
+/*随机播放*******************************************************/
+.button-randomPlay {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    bottom: -100px;
+    right: 115px;
+    transition: opacity 1s, bottom 1s;
+}
+.button-randomPlay_play {
+    z-index: 201;
+    opacity: 1;
+    bottom: 25%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-randomPlay_play:hover {
+    opacity: 0.7;
+}
+
+/*快退*******************************************************/
+.button-slower {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+    position: absolute;
+    bottom: -100px;
+    left: 30px;
+    transition: opacity 1s, bottom 1s;
+}
+.button-slower_play {
+    opacity: 1;
+    bottom: 10%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-slower_play:hover {
+    opacity: 0.7;
+}
+
+/*上一曲*******************************************************/
+.button-pre {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    position: absolute;
+    bottom: -100px;
+    left: 90px;
+    transition: opacity 1s, bottom 1s;
+}
+.button-pre_play {
+    opacity: 1;
+    bottom: 9.6%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-pre_play:hover {
+    opacity: 0.7;
+}
+
+/*播放 & 暂停***************************************************/
+.button-play {
+    width: 50px;
+    height: 50px;
+    z-index: 101;
+    font-size: 25px;
+    background-color: white;
+    border: 0px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px #FFFFFF;
+    position: absolute;
+    right: 20px;
+    top: 275px;
+    transition: top 1s, left 1s, right 1s, box-shadow 1s;
+}
+.button-play:hover {
+    opacity: 0.9;
+}
+.button-play_play {
+    width: 50px;
+    height: 50px;
+    z-index: 101;
+    font-size: 25px;
+    background-color: white;
+    border: 0px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px #FFFFFF;
+    position: absolute;
+    right: 125px;
+    top: 215px;
+    transition: top 1s, left 1s, right 1s, box-shadow 1s;
+}
+.button-play_play:hover {
+    box-shadow: 0px 0px 20px #FFFFFF;
+}
+
+/*下一曲****************************************************/
+.button-next {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  bottom: -100px;
+  right: 90px;
+  transition: opacity 1s, bottom 1s;
+}
+.button-next_play {
+    opacity: 1;
+    bottom: 9.6%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-next_play:hover {
+    opacity: 0.7;
+}
+
+/*快进*******************************************************/
+.button-faster {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  position: absolute;
+  bottom: -100px;
+  right: 30px;
+  transition: opacity 1s, bottom 1s;
+}
+.button-faster_play {
+    opacity: 1;
+    bottom: 10%;
+    transition: opacity 1s, bottom 1s;
+}
+.button-faster_play:hover {
+    opacity: 0.7;
+}
+
+/*播放列表******************************************************/
+.e3-mp3-list {
+    opacity: 1;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 1s, bottom 1s;
+}
+
+.e3-mp3-list_play {
+    z-index: -1;
+    opacity: 0;
+    bottom: -100px;
+    transition: opacity 1s, bottom 1s;
+}
+
+.mp3-list-title {
+  width: 280px;
+  height: 40px;
+  font-size: 15px;
+  padding-left: 20px;
+}
+.mp3-list {
+    display: block;
+    width: 280px;
+    height: 50px;
+    background-color: #262626;
+    border: 0px;
+    padding-left: 20px;
+
+}
+.mp3-list:hover {
+    opacity: 0.9;
+    box-shadow: inset 0px -50px 100px -58px #FFFFFF;
+}
+.mp3-list-img {
+    display: inline-block;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+.mp3-list-name {
+    font-size: 12px;
+}

@@ -1,0 +1,178 @@
+
+
+
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+
+.hide {
+    display: none;
+}
+
+.e3-mp3-bg {
+    width: 60%;
+    height: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #FD4848;
+    position: relative;
+}
+
+.e3-mp3-player {
+    width: 300px;
+    height: 520px;
+    margin: 0 auto;
+    color: white;
+    box-shadow: 5px 5px 29px #333333;
+    background-color: #262626;
+    box-shadow: 2px black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.e3-mp3-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 140px;
+    left: 16.5%;
+    transform: translateX(-50%);
+    animation: 9.5s linear 0s normal none infinite rotate;
+    -webkit-animation:9.5s linear 0s normal none infinite rotate;
+}
+
+.circle {
+    z-index: 100;
+    border: 1px solid #4d4d4d;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.circle1 {
+    width: 180px;
+    height: 180px;
+    top: 150px;
+}
+.circle2 {
+    width: 160px;
+    height: 160px;
+    top: 160px;
+}
+.circle3 {
+    width: 140px;
+    height: 140px;
+    top: 170px;
+}
+.circle4 {
+    width: 120px;
+    height: 120px;
+    top: 180px;
+}
+.circle5 {
+    width: 100px;
+    height: 100px;
+    top: 190px;
+}
+.circle6 {
+    width: 80px;
+    height: 80px;
+    top: 200px;
+}
+.circle7 {
+    width: 60px;
+    height: 60px;
+    top: 210px;
+}
+
+.e3-mp3-progress {
+    z-index: 100;
+
+}
+
+.time {
+    font-size: 10px;
+    color: #C4C4C4;
+}
+
+#id-div-currentSong {
+    color: #C4C4C4;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#id-span-currentTime {
+    position: absolute;
+    left: 80px;
+    top: 350px;
+}
+/*实现圆形进度条*/
+#id-input-progress {
+
+}
+
+#id-span-duration {
+    position: absolute;
+    right: 80px;
+    top: 350px;
+}
+
+#id-button-pre {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 450px;
+    left: 90px;
+}
+
+#id-button-pre:hover {
+    opacity: 0.8;
+}
+
+#id-button-play {
+    width: 50px;
+    height: 50px;
+    z-index: 101;
+    font-size: 25px;
+    background-color: white;
+    border: 0px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 215px;
+    transform: translateX(-50%);
+}
+
+#id-button-play:hover {
+    box-shadow: 0px 0px 20px #FFFFFF;
+}
+
+#id-button-next {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 450px;
+    right: 90px;
+}
+
+#id-button-next:hover {
+    opacity: 0.8;
+}

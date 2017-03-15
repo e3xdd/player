@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Player</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+
+      <div class="e3-mp3-bg">
+          <div class="e3-mp3-player">
+
+              <audio id='id-audio-player' oncanplay="__e3()">
+                  <source src="res/mp3/1.mp3">
+              </audio>
+              <!-- 专辑图片 -->
+              <div class="e3-mp3-imgPro">
+                  <img class="e3-mp3-img" src="res/imgs/1.jpg">
+
+                  <div class=" circle circle1"></div>
+                  <div class=" circle circle2"></div>
+                  <div class=" circle circle3"></div>
+                  <div class=" circle circle4"></div>
+                  <div class=" circle circle5"></div>
+                  <div class=" circle circle6"></div>
+                  <div class=" circle circle7"></div>
+
+                  <div id='e3-mp3-progress' class="e3-mp3-progress">
+                      <div id='id-div-currentSong' class="div-currentSong">小幸运</div>
+                      <span id='id-span-currentTime' class="time span-currentTime">00:00</span>
+                      <div id="progressbar" class="hide"></div>
+                      <!-- 播放时候的 包含一个旋转圆盘的正方形 -->
+                      <canvas id="progressCircle" class="progressCircle" width="300px" height="300px"></canvas>
+                      <input id="id-input-progress" class=" " type="range" min="0" max="100" step="1" value="0">
+                      <span id='id-span-duration' class="time span-duration">00:00</span>
+                  </div>
+
+              </div>
+
+              <div class="e3-mp3-control">
+                  <img src="res/icons/circle.png" id='id-button-circlePlay' class="button-circlePlay">
+                  <img src="res/icons/random.png" id='id-button-randomPlay' class="button-randomPlay">
+                  <img src="res/icons/slower.png" id='id-button-slower' class="button-slower">
+                  <img src="res/icons/pre.png" id='id-button-pre' class="button-audio-control button-pre">
+                  <img src="res/icons/play.png" id='id-button-play' class="button-audio-control button-play">
+                  <img src="res/icons/next.png" id='id-button-next' class="button-audio-control button-next">
+                  <img src="res/icons/faster.png" id='id-button-faster' class="button-faster">
+              </div>
+
+              <div class="e3-mp3-list">
+                  <div id="mp3-list-title" class="mp3-list-title">播放列表</div>
+
+                  <div class="mp3-list" data-path=1>
+                      <img class="mp3-list-img" src="res/imgs/1.jpg">
+                      <span class="mp3-list-name">费玉清 - 小幸运</span>
+                  </div>
+
+                  <div class="mp3-list" data-path=2>
+                      <img class="mp3-list-img" src="res/imgs/2.jpg">
+                      <span class="mp3-list-name">陈奕迅 - 阴天快乐</span>
+                  </div>
+
+                  <div class="mp3-list" data-path=3>
+                      <img class="mp3-list-img" src="res/imgs/3.jpg">
+                      <span class="mp3-list-name">好妹妹乐队 - 不说再见</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script src='js/e3.js'></script>
+      <script src='js/index1.js'></script>
+    </body>
+</html>
